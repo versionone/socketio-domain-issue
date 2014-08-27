@@ -1,0 +1,19 @@
+{
+  "name": "socketio-domain-issue",
+  "version": "0.0.0",
+  "description": "Demonstration of socket.io issue with exception handling when used within a domain.",
+  "main": "app\\server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/versionone/socketio-domain-issue.git"
+  },
+  "author": "codeEmitter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/versionone/socketio-domain-issue/issues"
+  },
+  "homepage": "https://github.com/versionone/socketio-domain-issue"
+}
