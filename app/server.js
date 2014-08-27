@@ -1,20 +1,22 @@
 var express = require('express');
 var app = express();
 var domain = require('domain');
-var socketio = require('socket.io');
 
 serverDomain = domain.create();
 
-process.on('error', function(req, res, next){
-    res.end('Error caught!s')
+process.on('error', function(err){
+    console.log(err.stack);
 });
 
 serverDomain.run(function(){
-    // listen on the specified port
     var server = app.listen(8080);
+    app.use ('/crash', express.static(__dirname + '/static'));
 
-    app.get('/quit', function(req, res, next){
-        res.end('Im dying!');
+    var io = require('socket.io')(server);
+    io.on('connection', function (socket) {
+        socket.on('boom', function(data) { throw "OMG"; });
     });
 });
+
+
 
