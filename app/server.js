@@ -4,7 +4,7 @@ var domain = require('domain');
 
 serverDomain = domain.create();
 
-process.on('error', function(err){
+serverDomain.on('error', function(err){
     console.log(err.stack);
 });
 
@@ -16,6 +16,7 @@ serverDomain.run(function(){
     io.on('connection', function (socket) {
         socket.on('boom', function(data) { throw "OMG"; });
     });
+    console.info('Server running...')
 });
 
 
